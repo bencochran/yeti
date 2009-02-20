@@ -7,6 +7,7 @@ Requirements
 ------------
 
 It requires:
+
 * [PHP 5][php]
 * [MySQL][mysql]
 * [Sphinx][sphinx]
