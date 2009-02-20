@@ -1,0 +1,425 @@
+body {
+	background: url(/images/body_bg.png);
+	margin: 0;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+}
+
+p, ol li {
+	font-size: 12px;
+}
+
+input, select, button {
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	font-size: 12px;
+}
+
+table {
+	font-size: 12px;
+	line-height: 18px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th {
+	text-align: left;
+	padding: 2px 4px;
+}
+
+table tr td {
+	padding: 2px 4px;
+	color: #363636;
+}
+
+table tr td.label {
+	padding: 2px 4px;
+	font-weight: bold;
+}
+
+table tr span.info {
+	font-size: 11px;
+	color: #959595;
+}
+
+table tr span.info a {
+	color: #7da7d9;
+}
+
+table tr.even {
+	background: url(/images/table_alt.png);
+}
+
+div.wrap {
+	width: 815px;
+	margin: 0 auto;
+}
+
+div.header {
+	padding: 30px 0 35px 0;
+	background: url(/images/header_bg.png) bottom repeat-x;
+}
+
+div.header h1 {
+	float: left;
+	margin: 0;
+}
+
+div.header h1 a {
+	width: 253px;
+	height: 68px;
+	display: block;
+	background: url(/images/logo_beta.png) no-repeat;
+}
+
+div.header h1 a span {
+	display: none;
+}
+
+div.header div.supernav {
+	padding-top: 13px;
+	margin-left: 285px;
+	* margin-left: 279px;
+}
+
+div.header div.supernav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	cursor: default;
+}
+
+div.header div.supernav ul li {
+	display: inline;
+}
+
+div.header div.supernav ul li a {
+	cursor: pointer;
+}
+
+div.header div.supernav ul.tabs {
+	margin: 0 0 13px 0;
+	line-height: 24px;
+	font-size: 24px;
+	font-weight: bold;
+
+}
+
+div.header div.supernav ul.tabs li {
+	margin: 0 0 0 16px;
+	color: #ccc;
+}
+
+div.header div.supernav ul.tabs li:first-child {
+	margin: 0;
+}
+
+div.header div.supernav ul.tabs li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 2px 6px;
+}
+
+div.header div.supernav ul.tabs li.disabled {
+	padding: 2px 6px;
+}
+
+div.header div.supernav ul.tabs li.active a, div.header div.supernav ul.tabs li a:hover {
+	background: url(/images/active_bg.png);
+}
+
+div.header div.supernav ul.status {
+	font-size: 12px;
+	margin-left: 8px;
+}
+
+div.header div.supernav ul.status li {
+	margin: 0 14px 0 0;
+}
+
+div.header div.supernav ul.status li a {
+	color: #6dcff6;
+}
+
+div.header div.supernav ul.status li a:hover {
+	text-decoration: none;
+}
+
+div.header div.supernav ul.status li.warn a {
+	color: #ff1662;
+}
+
+div.content {
+	padding: 30px 0;
+	background: url(/images/content_bg.png);
+}
+
+div.content h2 {
+	margin: 0 0 20px 0;
+	padding: 7px 9px;
+	background: url(/images/h2_bg.png);
+	font-size: 18px;
+	color: #252525;
+}
+
+div.content h3 {
+	margin-top: 30px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #363636;
+	border-bottom: 1px solid #ccc;
+}
+
+div.content p, div.content ol li, div.content ul li {
+	font-size: 12px;
+	margin-bottom: 0;
+	line-height: 20px;
+	color: #363636;
+}
+
+div.content p.tools {
+	background: url(/images/table_alt.png);
+	padding: 1px 4px;
+	margin-top: 30px;
+}
+
+div.content p span.announce {
+	font-weight: bold;
+}
+
+div.content a {
+	color: #0072bc;
+}
+
+div.content a:hover {
+	text-decoration: none;
+}
+
+div.content p.failure {
+	background: url(/images/failure_bg.png);
+	padding: 6px;
+	color: #fff;
+	text-align: center;
+	margin-top: 20px;
+}
+
+div.content p.success {
+	background: url(/images/success_bg.png);
+	padding: 6px;
+	color: #fff;
+	text-align: center;
+	margin-top: 20px;
+}
+
+div.content p.failure a, div.content p.success a {
+	color: #fff;
+}
+
+div.content form label {
+	display: block;
+	margin-bottom: 3px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+div.content form label.checkbox {
+	display: inline;
+	margin-bottom: 3px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+
+div.content form label span {
+	display: block;
+	color: #999;
+	font-size: 10px;
+}
+
+div.content form label span a {
+	color: #0072bc;
+}
+
+div.content form.login {
+	margin-top: 14px;
+}
+
+div.content form label span a:hover {
+	text-decoration: none;
+}
+
+div.content form.filter {
+	display: block;
+}
+
+div.content form.filter table {
+	border-collapse: collapse;
+}
+
+div.content form.filter table td {
+	padding: 0;
+}
+
+div.content form.filter table td.category {
+	padding-right: 20px;
+	width: 10%;
+}
+
+div.content form.filter table td.category select {
+	/*width: 110%;*/
+}
+
+div.content form.filter table td.search {
+	padding-right: 20px;
+	width: 80%;
+}
+
+div.content form.filter table td.search input {
+	width: 100%;
+	padding: 2px 2px 0 2px;
+}
+
+div.content form.filter table td.submit {
+	width: 10%;
+}
+
+div.content form.filter table td.submit button {
+	width: 100%;
+	padding: 1px 0;
+}
+
+div.content form.upload input#title {
+	width: 407px;
+}
+
+div.content form.upload textarea#description {
+	width: 407px;
+	height: 150px;
+}
+
+div.content form.compose input#subject {
+	width: 407px;
+}
+
+div.content form.compose textarea#body {
+	width: 407px;
+	height: 150px;
+}
+
+div.content form.comment textarea#body {
+	width: 407px;
+	height: 150px;
+}
+
+div.content div.comments p.comment.even {
+	background: url(/images/table_alt.png);
+}
+
+
+div.content div.comments span {
+	display: block;
+}
+
+div.content table.torrents th.torrent {
+	width: 85%;
+}
+
+div.content table.torrents th.seeders {
+	width: 5%;
+}
+
+div.content table.torrents th.leechers {
+	width: 5%;
+}
+
+div.content table.torrents th.completed {
+	width: 5%;
+}
+
+div.content table.torrents a.download {
+	background: url(/images/download_icon.png) left center no-repeat;
+	padding-left: 19px;
+	font-weight: bold;
+}
+
+div.content table.files th.file {
+	width: 85%;
+}
+
+div.content table.chart_uploaders th.rank, div.content table.chart_uploaders td.rank, div.content table.chart_torrents th.rank, div.content table.chart_torrents td.rank {
+	width: 4%;
+	text-align: right;
+	padding-right: 10px;
+}
+
+div.content table.chart_uploaders th.user, div.content table.chart_torrents th.torrent {
+	width: 81%;
+}
+
+div.content div.pagination {
+	margin-top: 20px;
+	padding: 3px;
+	font-size: 12px;
+}
+
+div.content div.pagination a {
+	border: 1px solid #ccdbe4;
+	margin-right: 2px;
+	padding: 2px 8px;
+	background-position: bottom;
+	text-decoration: none;
+	color: #0072bc;		
+}
+
+div.content div.pagination a:hover, div.content div.pagination a:active {
+	border: 1px solid #2b55af;
+	background-image: none;
+	background-color: #0072bc;
+	color: #fff;
+}
+
+div.content div.pagination span.current {
+	margin-right: 2px;
+	padding: 3px 9px;
+	color: #000;
+}
+
+div.content div.pagination span.disabled {
+	margin-right: 2px;
+	padding: 2px 8px;
+	color: #ccc;
+	border: 1px solid #ccc;
+}
+
+div.content div.pagination a.next {
+	border: 1px solid #ccdbe4;
+}
+
+div.content div.pagination a.next:hover {
+	border: 1px solid #2b55af;
+}
+
+div.content div.pagination a.prev{
+	border: 1px solid #ccdbe4;
+}
+
+div.content div.pagination a.prev:hover {
+	border: 1px solid #2b55af;
+}
+
+div.footer {
+	background: url(/images/footer_bg.png) top repeat-x;
+}
+
+div.footer p {
+	margin: 0;
+	padding: 30px 0;
+	color: #fff;
+}
+
+div.footer a {
+	color: #6dcff6;
+}
+
+div.footer a:hover {
+	text-decoration: none;
+}
+

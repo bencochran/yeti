@@ -1,0 +1,1 @@
+<abbr title="<?php echo date('n/j/y g:i:s a',$time)?>"><?php echo time_diff($time) ?></abbr>

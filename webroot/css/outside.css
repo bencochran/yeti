@@ -1,0 +1,177 @@
+body {
+	background: url(/images/body_bg.png);
+	margin: 0;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+}
+
+div.page {
+	width:  292px;
+	margin: 7em auto;
+}
+
+p, ol li {
+	font-size: 12px;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+input, select, button {
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	font-size: 12px;
+}
+
+div.content {
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: url(/images/content_bg.png);	
+}
+
+h1 {;
+	margin-bottom: 6px;
+}
+
+h1 a {
+	display: block;
+	width: 292px;
+	height: 33px;
+	background: url(/images/logo_beta_outside.png) no-repeat 16px center;
+
+}
+
+h1 span {
+	display: block;
+	overflow: hidden;
+	text-indent: -1000px;
+}
+
+h2, h3 {
+	padding: 16px 16px 6px 16px;
+	display: block;
+	color: #2f2f2f;
+	font-size: 18px;
+}
+
+h3 {
+	padding-top: 6px;
+
+}
+
+div.content p {
+	padding: 6px 16px;
+	color: #5c5c5c;
+}
+
+div.content a {
+	color: #0072bc;
+}
+
+div.content a:hover {
+	text-decoration: none;
+}
+
+div.content p.failure, div.content p.success {
+	color: #fff;
+	margin: 0;
+	padding: 6px 16px;
+	text-align: center;
+}
+
+div.content p.failure {
+	background: url(/images/failure_bg.png);
+}
+
+div.content p.success {
+	background: url(/images/success_bg.png);
+}
+
+div.content p.reglink {
+	padding: 0;
+	float: left;
+}
+
+div.content.fatal h2 {
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-khtml-border-top-right-radius: 5px;
+	-khtml-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding: 16px 16px 6px 16px;
+	background: url(/images/failure_bg.png);
+	color: #fff;	
+}
+
+div.content.fatal p {
+	padding:  16px;
+}
+
+
+div.content form p {
+	padding: 6px 0;
+}
+
+form {
+	padding:  0px 16px 40px 16px;
+}
+
+form .submit {
+	background: url(/images/h2_bg.png);
+	color: #2f2f2f;
+	padding: 3px 5px;
+	border: none;
+	font-size: 13px;
+	border-width: 1px;
+	border-color: #00445F;
+	border-style: solid;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	cursor: default;
+	text-decoration: none;
+	float: right;
+}
+
+form .submit:hover {
+	background: url(/images/success_bg.png);
+	color: #fff;
+}
+
+form .submit:active {
+	background: url(/images/body_bg.png);
+	color: #fff;
+}
+
+form label {
+	font-size: 16px;
+	color: #2f2f2f;
+}
+
+form label span {
+	display: block;
+	color: #999;
+	font-size: 10px;
+}
+
+form #username, form #email, form #password, form #password_match {
+	/*font-size: 20px;*/
+	width: 97%;
+	padding: 3px;
+	margin-top: 3px;
+	margin-right: 6px;
+}
+
+div.buttons {
+	padding: 6px 0;
+	clear: both;
+}
