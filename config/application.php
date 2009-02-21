@@ -34,7 +34,7 @@ define('APP_PATH', dirname(dirname(__FILE__)) . '/');
  * work as the defaults, but change them if necessary.
  * 
  ********************************************************/
-define('WWW_BASE_PATH', '//yourdomain.com/');
+define('WWW_BASE_PATH', '//massive.ath.cx/');
 define('WWW_CSS_PATH', WWW_BASE_PATH . 'css/');
 define('WWW_JS_PATH', WWW_BASE_PATH . 'js/');
 define('WWW_IMAGE_PATH', WWW_BASE_PATH . 'images/');
@@ -46,7 +46,7 @@ define('WWW_IMAGE_PATH', WWW_BASE_PATH . 'images/');
  * Yeti. It's usually safe to use .yourdomain.com
  * 
  ********************************************************/
-define('COOKIE_DOMAIN', '.yourdomain.com');
+define('COOKIE_DOMAIN', '.massive.ath.cx');
 
 
 /*********************************************************
@@ -58,7 +58,7 @@ define('COOKIE_DOMAIN', '.yourdomain.com');
  * disable logging
  * 
  ********************************************************/
-define('LOG_BASE_PATH', '/var/yeti/log/');
+define('LOG_BASE_PATH', '/var/massive/log/');
 
 
 /*********************************************************
@@ -68,7 +68,7 @@ define('LOG_BASE_PATH', '/var/yeti/log/');
  * This could be moved to the database.
  * 
  ********************************************************/
-define('TRACKER_BASE_PATH','http://yourdomain.com:2710/');
+define('TRACKER_BASE_PATH','http://massive.ath.cx:2710/');
 
 
 /*********************************************************
@@ -80,7 +80,7 @@ define('TRACKER_BASE_PATH','http://yourdomain.com:2710/');
  * This could be moved to the database
  * 
  ********************************************************/
-define('TORRENT_BASE_PATH','/var/yeti/torrents/');
+define('TORRENT_BASE_PATH','/var/massive/torrents/');
 
 
 /*********************************************************
@@ -91,10 +91,10 @@ define('TORRENT_BASE_PATH','/var/yeti/torrents/');
  * change them or chaos will ensue.
  * 
  ********************************************************/
-define('SALT_TORRENT_PASS', 'salttime');
-define('SALT_PASSWORD', 'okseriously');
-define('SALT_CODE', 'activationtime');
-define('SALT_RESET_CODE', 'whatpassword');
+define('SALT_TORRENT_PASS', 'saltines');
+define('SALT_PASSWORD', 'swallow');
+define('SALT_CODE', 'garbageday');
+define('SALT_RESET_CODE', 'iforgot');
 
 
 /*********************************************************
@@ -132,8 +132,8 @@ define('SEARCHD_PORT', 3312);
  * This setting should be moved to the database
  * 
  ********************************************************/
-define('EMAIL_FROM', 'yeti@yourdomain.com');
-define('EMAIL_FROM_NAME', 'Yeti');
+define('EMAIL_FROM', 'carleton.massive@gmail.com');
+define('EMAIL_FROM_NAME', 'Massive');
 
 /*********************************************************
  * 
@@ -148,7 +148,7 @@ define('EMAIL_FROM_NAME', 'Yeti');
  * This setting should be moved to the database
  * 
  ********************************************************/
-define('CONTACT_EMAIL', 'admin@yourdomain.com');
+define('CONTACT_EMAIL', 'carleton.massive@gmail.com');
 
 
 /*********************************************************
