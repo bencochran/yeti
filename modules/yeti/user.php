@@ -199,16 +199,13 @@
 			// Domain-limiting regular expression email check.
 			// Uncomment this and edit the domain name to only allow 
 			// registrations from a certain domain name.
-			/*
-			if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@yourdomain.com",$email)) {
-				return array('status' => false, 'message' => 'You don\'t seem to be allowed to register.');
+			if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@carleton.edu",$email)) {
+				return array('status' => false, 'message' => 'You don\'t seem to be a Carleton student.');
 			}
-			*/
 			
 			// Check LDAP.
 			// If you want to enable LDAP-validation of users, you'll need to 
 			// edit modules/yet/ldap.php to fit your needs.
-			/*
 			$result = LDAP::check_address($email);
 			if (!$result['status'])
 			{
@@ -218,7 +215,6 @@
 				mail_send(CONTACT_EMAIL, $body, 'Invalid Email', CONTACT_EMAIL, EMAIL_FROM_NAME);
 				return array('status' => false, 'message' => 'You don\'t seem to be allowed to register.');
 			}
-			*/
 			
 			return array('status' => true);
 			
@@ -294,13 +290,13 @@
 				$fromname = EMAIL_FROM_NAME;
 				$fromaddress = EMAIL_FROM;
 				$to = $email;
-				$subject = "Activate your account!";
+				$subject = "Activate your Massive account!";
 				$body = "Hi " . $username . "!\r\n\r\nThanks for registering with ".SITE_NAME.". In order to use ".SITE_NAME.", you first need to activate ";
 				$body .= "your account by visiting the link below:\r\n\r\n";
 				$body .= "Activation Link: http:" . WWW_BASE_PATH . "user/".$username."/activate/" . $code . "\r\n\r\n";
 				$body .= "Once you've activated, the following details will get you in:\r\n\r\n";
 				$body .= "URL: http:" . WWW_BASE_PATH . "\r\nUsername: " . $username . "\r\nPassword: <encrypted>\r\n\r\n";
-				$body .= "Regards,\r\n".EMAIL_FROM_NAME;
+				$body .= "Regards,\r\nThe Massive Staff";
 
 				// Attempt to send the registration e-mail
 				if(mail_send($to, $body, $subject, $fromaddress, $fromname)) {
@@ -374,14 +370,14 @@
 					$fromname = EMAIL_FROM_NAME;
 					$fromaddress = EMAIL_FROM;
 					$to = $user->email;
-					$subject = "Reset your password!";
+					$subject = "Reset your Massive password!";
 					$body = "Hi " . $user->name . "!\r\n\r\nI understand that you've forgotten your password. No worries, ";
 					$body .= "you can simply reset it by visiting the link below within 3 days:\r\n\r\n";
 					$body .= "Reset Link: http:" . WWW_BASE_PATH . "user/".$user->name."/reset/" . $reset_code . "\r\n\r\n";
 					$body .= "There, simply choose a new password and login.\r\n\r\n";
 					$body .= "If you've remembered your password already or you didn't request a reset, no worries, simply ";
 					$body .= "disregard this email and your password will remain unchanged.\r\n\r\n";
-					$body .= "Regards,\r\n".EMAIL_FROM_NAME;
+					$body .= "Regards,\r\nThe Massive Staff";
 
 					// Attempt to send the reset e-mail
 					if(mail_send($to, $body, $subject, $fromaddress, $fromname)) {

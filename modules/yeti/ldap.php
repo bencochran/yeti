@@ -14,7 +14,7 @@ class LDAP
 	{
 		if (empty(self::$connection))
 		{
-			if (!(self::$connection = ldap_connect( 'your.ldap.server.com', 389 )))
+			if (!(self::$connection = ldap_connect( 'ldap.its.carleton.edu', 389 )))
 				return false;
 			ldap_set_option( self::$connection, LDAP_OPT_PROTOCOL_VERSION, 3 );
 			if( !ldap_bind( self::$connection ) ) 
@@ -27,9 +27,9 @@ class LDAP
 	public static function check_address($email)
 	{
 		$conn = &self::get_connection();
-		$dn = "ou=department, dc=example, dc=com";
+		$dn = "ou=People, dc=carleton, dc=edu";
 		$filter = "(mail=$email)";
-		$justthese = array("affiliation");
+		$justthese = array("edupersonprimaryaffiliation");
 
 		$sr = ldap_search($conn, $dn, $filter, $justthese);
 
@@ -37,14 +37,14 @@ class LDAP
 
 		if ($entries['count'] == 1)
 		{
-        if ($entries[0]['affiliation'][0] == 'employee')
-        {
-					return array('status'=>true, 'message'=>'You are a valid user.');
-				}
-				else
-				{
-					return array('status'=>false, 'message'=> "'" . $email . "' has affiliation '" . $entries[0]['affiliation'][0]."'");		
-				}
+        	if ($entries[0]['edupersonprimaryaffiliation'][0] == 'student')
+        	{
+				return array('status'=>true, 'message'=>'You are a carleton student.');
+			}
+			else
+			{
+				return array('status'=>false, 'message'=> "'" . $email . "' has affiliation '" . $entries[0]['edupersonprimaryaffiliation'][0]."'");		
+			}
 		}
 		
 		// Log it?!
