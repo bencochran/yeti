@@ -1,5 +1,6 @@
 <p>
-	<?php echo SITE_NAME ?> is currently offline. Maybe something's broken and
-	we're hard at work to fix it. It shouldn't be too long so please check back 
-	soon.
+	Maybe it's the end of the term. Maybe we just got tired of the site being up
+	for a little while. Or maybe something broke and we're working hard to fix 
+	it. Whatever the case, <?php echo SITE_NAME ?> is currently offline.
+	Please check back soon, or next term as the case may be.
 </p>

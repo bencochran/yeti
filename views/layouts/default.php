@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title><?php echo $pageTitle ?> <? if (substr($pageTitle, -10) != ' - '. SITE_NAME): ?> - <?php echo SITE_NAME; endif; ?></title>
+		<script src="/mint/?js" type="text/javascript"></script>
 		<?php
 
 		if (isset($requiredCss)) {
@@ -24,7 +25,7 @@
 		<div class="header">
 			<div class="wrap">
 				<h1>
-					<a href="<?php echo WWW_BASE_PATH ?>"><span class="title"><?php echo SITE_NAME ?></span></a>
+					<a href="<?php echo WWW_BASE_PATH ?>"><span class="title">massive beta</span></a>
 				</h1>
 
 				<div class="supernav">
@@ -78,9 +79,9 @@
 		<div class="footer">
 			<div class="wrap">
 				<p>
-					<?php echo SITE_NAME ?> is a <a href="http://yetiapp.com">Yeti-powered</a> site. <?php $u = User::count(); echo $u; ?> users and climbing. Respect.
+					<?php echo SITE_NAME ?>. <?php $u = User::count(); echo $u; ?> users and climbing. That's <?php echo round($u/1986*100,1) ?>% of campus. Respect.
 					<br />
-					Questions about <?php echo SITE_NAME ?>? <a href="<?php echo WWW_BASE_PATH ?>contact" title="Bone to pick?">Contact us.</a>
+					Questions about Massive? Forgot your password? Want to report copyright infringement? <a href="<?php echo WWW_BASE_PATH ?>contact" title="Bone to pick?">Contact us.</a>
 				<?php if ($active_user->admin): ?>
 					<br />
 					<?php echo DB::$query_count; ?> queries performed. Took <?php echo microtime()-START_MICROTIME ?> microseconds to load this page.

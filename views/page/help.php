@@ -4,6 +4,15 @@
 	the trickier aspects of using the site.
 </p>
 
+<h3>Why can't I view the site sometimes?</h3>
+<p>
+	Massive is only visible from within the Carleton campus network. More specifically, it can only be accessed
+	from the residential and wireless networks. What does this mean? It means you cannot access the site from library or 
+	lab computers. Sorry for the inconvenience. Trust us, it's better this way. And shouldn't you be doing homework
+	anyway?
+</p>
+
+
 <h3>What is a tracker?</h3>
 <p>
 	<?php echo SITE_NAME ?> is both a website and a BitTorrent tracker. You, of course, know what a website is. But what is a
@@ -53,6 +62,21 @@
 <p>
 	We realize that it's a bit of a pain to jump through all these hoops, but requiring you to register your torrent 
 	helps keep the site cleaner and makes it easier to add new features.
+</p>
+
+<a name="copyright"></a>
+<h3>Copyright Policy</h3>
+<p>
+	The folks who run Massive do not condone copyright infringement. We also do not host any copyrighted content on this website. The files that we host simply contain metadata and do not contain copyrighted content. That said, we will remove torrents from the site if the copyright holder of the content suspects infringement and requests removal. These requests must fit the following criteria:
+</p>
+<ul>
+	<li>You are, or your company is, the copyright holder of the content in question.</li>
+	<li>You provide the exact URLs to the torrents, no complete (sub)categories or search queries.</li>
+	<li>You provide the complete name(s) of the content in question.</li>
+	<li>You send the removal request using a verifiable email address (e.g. address@yourcompany.com).</li>
+</ul>
+<p>
+If your request complies with <strong>all</strong> of these rules, send an email to <a href="mailto:<?php echo CONTACT_EMAIL ?>"><?php echo CONTACT_EMAIL ?></a>. Please keep the correspondence polite. We should respond or take action within 72 hours of the request. And remember, the request must comply with all of the above criteria.
 </p>
 
 <a name="contact"></a>

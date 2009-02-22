@@ -3,7 +3,7 @@
 		Forgot your password? No problem! Just give me your username or email address and I'll give you a second chance.
 	</p>
 	<p>
-		<label for="username">Username or Email Address:</label>
+		<label for="username">Username or Email:<span>The email you used was <em>@carleton.edu</em>.</span></label>
 		<input id="username" name="username" type="text" size="40" value="<?php echo $username; ?>" />
 	</p>
 	<div class="buttons">

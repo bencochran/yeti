@@ -1,7 +1,9 @@
 <?php $this->setLayoutVar('pageHead','Welcome to '.SITE_NAME.'!') ?>
 <?php $this->setLayoutVar('pageTitle','Home') ?>
 <p>
-	<?php echo SITE_NAME ?> is a private BitTorrent tracker.  All content
+	<?php echo SITE_NAME ?> is a private BitTorrent tracker. Access is
+	restricted to people on the local campus network at Carleton. It's 
+	completely unofficial and unsanctioned by the administration. All content
 	uploaded and downloaded is the sole responsibility of the users. Alright, 
 	now that we've taken care of that, why not have a little fun?
 </p>

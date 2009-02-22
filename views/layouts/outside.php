@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title><?php echo $pageTitle ?></title>
+		<script src="/mint/?js" type="text/javascript"></script>
 		<link rel="stylesheet" href="<?php echo WWW_CSS_PATH ?>reset.css" type="text/css" media="all" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo WWW_CSS_PATH ?>outside.css" type="text/css" media="all" charset="utf-8" />
 	</head>
@@ -10,7 +11,7 @@
 	<body>
 		<div class="page">
 			<h1>
-				<a href="<?php echo WWW_BASE_PATH ?>"><span class="title"><?php echo SITE_NAME ?></span></a>
+				<a href="<?php echo WWW_BASE_PATH ?>"><span class="title">massive beta</span></a>
 			</h1>
 			<div class="content">
 				<?php if (!empty($pageHead)): ?>

@@ -1,5 +1,9 @@
 <form class="login" action="<?php echo WWW_BASE_PATH ?>user/<?php echo $username ?>/reset/<?php echo $reset_code ?>" method="post">
 	<p>
+		<strong>Please do not use your Carleton password below&mdash;come up with something unique
+			for your Massive account.</strong>
+	</p>
+	<p>		
 		Choose a new password for user <strong><?php echo $username ?></strong>.
 	</p>
 	<p>	
