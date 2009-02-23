@@ -18,6 +18,6 @@
 	</div>
 
 	<div class="confirm">
-		<input type="submit" value="Save and continue" />
+		<input name="submit" value="submit" type="submit" value="Save and continue" />
 	</div>
 </form>

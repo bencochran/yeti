@@ -27,7 +27,7 @@ MySQL root account. That's just bad juju.</p>
 		</div>	
 	</div>
 
-	<div class="confirm">
-		<input type="submit" value="Check connection" />
+	<div class="confirm">		
+		<input name="submit" value="submit" type="submit" value="Check connection" />
 	</div>
 </form>
