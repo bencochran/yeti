@@ -15,7 +15,7 @@ $regexRoutes = array(
 		),
 	),
 
-	'#^([^/]+)$#' => array(
+	'#^([^/]+)/?$#' => array(
 		'controller' => 'setup',
 		'action' => 1,
 	),
