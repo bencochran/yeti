@@ -7,7 +7,7 @@ class SetupController extends AppController
 	public function actionBegin()
 	{
 		$this->setLayoutVar('pageTitle', 'Yeti Configuration');
-		$this->setLayoutVar('pageHead','Yeti');
+		$this->setLayoutVar('pageHead','Welcome');
 	}
 	
 	public function actionSite()
