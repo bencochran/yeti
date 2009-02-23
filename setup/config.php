@@ -24,9 +24,10 @@ Lvc_Config::setViewClassName('AppView');
 include(APP_PATH . 'classes/AppController.class.php');
 include(APP_PATH . 'classes/AppView.class.php');
 
-// Load Yeti code, we'll use some of the helpers and classes
+// Load some of the Yeti code. We'll use some of the helpers classes
 // such as time/text formatting and the Flash class.
-include_once(APP_PATH . 'modules/yeti.php');
+include_once(APP_PATH . 'modules/yeti/flash.php');
+include_once(APP_PATH . 'modules/yeti/helper.php');
 
 // Load Routes from /setup/
 include(dirname(__FILE__) . '/routes.php');
