@@ -6,10 +6,10 @@
 // Format of regex => parseInfo
 $regexRoutes = array(
 
-	// Map nothing to the home page.
+	// Map nothing to the "begin" action.
 	'#^$#' => array(
 		'controller' => 'setup',
-		'action' => 'site',
+		'action' => 'begin',
 		'action_params' => array(
 			'page_name' => 'home',
 		),

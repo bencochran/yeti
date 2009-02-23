@@ -38,6 +38,8 @@ class SetupController extends AppController
 		}
 		else
 		{
+			$this->setVar('site_name','Yeti Site');
+			
 			// Try to guess the base_path...
 			$this->setVar('base_path',$_SERVER['SERVER_NAME'] . str_replace('setup/index.php', '', $_SERVER['SCRIPT_NAME']));
 			// and the cookie domain
