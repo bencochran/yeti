@@ -702,7 +702,12 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 					// Check for redirect action first
 					if (isset($parsingInfo['redirect'])) {
 						$redirectUrl = preg_replace($regex, $parsingInfo['redirect'], $url);
-						header('Location: ' . $redirectUrl);
+						// Pass query strings along
+						$q = $params['get'];
+						unset($q['url']);
+						if (!empty($q)) $q = '?'.http_build_query($q);
+
+						header('Location: ' . $redirectUrl.$q);
 						exit();
 					}
 					

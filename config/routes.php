@@ -72,19 +72,6 @@ $regexRoutes = array(
 			'page' => 2,
 		),
 	),
-	
-	// hacky hacky hacky hacky!! a way to only browse torrents
-	// that are seeded.
-	'#^browselive(?:/([^/]+)(?:/(\d+))?)?$#' => array(
-		'controller' => 'torrent',
-		'action' => 'browse',
-		'action_params' => array(
-			'category_slug' => 1,
-			'page' => 2,
-			'query' => '',
-			'mode' => 'live',
-		),
-	),
 		
 	
 	// /search
@@ -92,26 +79,12 @@ $regexRoutes = array(
 		'controller' => 'torrent',
 		'action' => 'search',
 	),
-	
-	// also hacky!
-	'#^searchlive$#' => array(
-		'controller' => 'torrent',
-		'action' => 'search',
-		'action_params' => array(
-			'mode' => 'live'
-		),
-	),
-	
+		
 	// /search/slug
 	'#^search/([^/]+)/?$#' => array(
 		'redirect' => '/browse/$1'
 	),
-	
-	// /search/slug
-	'#^searchlive/([^/]+)/?$#' => array(
-		'redirect' => '/browselive/$1'
-	),
-	
+		
 	
 	// /search/slug/query, /search/slug/query/2
 	'#^search/([^/]+)/([^/]+)(?:/(\d+))?$#' => array(
@@ -122,20 +95,7 @@ $regexRoutes = array(
 			'query' => 3,
 			'page' => 2,
 		),
-	),
-	
-	// hack hack hacky tacky
-	'#^searchlive/([^/]+)/([^/]+)(?:/(\d+))?$#' => array(
-		'controller' => 'torrent',
-		'action' => 'browse',
-		'action_params' => array(
-			'category_slug' => 1,
-			'query' => 3,
-			'page' => 2,
-			'mode' => 'live',
-		),
-	),
-	
+	),	
 	
 	// /charts
 	'#^chart$#' => array(

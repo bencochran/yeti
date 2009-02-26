@@ -2,27 +2,24 @@
 
 class TorrentController extends AppController
 {	
-	public function actionSearch($mode = null)
+	public function actionSearch()
 	{		
 		$active_user = User::require_active_user();
 	
-		switch ($mode)
-		{
-			case 'live':
-				$browse_base = 'browselive';
-				$search_base = 'searchlive';
-				break;
-			default:	
-				$browse_base = 'browse';
-				$search_base = 'search';
-				break;
-		}
+		$browse_base = 'browse';
+		$search_base = 'search';
 		
 		$category_cid = $this->get['category_cid'];
+		$q = array();
+		if (isset($this->get['sort'])) $q['sort'] = $this->get['sort'];
+		if (isset($this->get['order'])) $q['order'] = $this->get['order'];
+		$q = http_build_query($q);
+		if (!empty($q)) $q = '?'.$q;
+		
 		$query = $this->get['query'];
 		if ((empty($query) && empty($category_cid)) || empty($category_cid))
 		{
-			$this->redirect('/'.$browse_base);
+			$this->redirect('/'.$browse_base.$q);
 			die;
 		}
 		if ($category_cid == -1)
@@ -32,19 +29,53 @@ class TorrentController extends AppController
 		$query = str_replace(array('/'),'',$query);
 		$query = strtr($query,array('&'=>'%26','#'=>'%23','\\\\'=>'%5C'));
 		$query = urlencode($query);
-		$this->redirect('/'.$search_base.'/'.$category->slug.'/'.$query);
+		$this->redirect('/'.$search_base.'/'.$category->slug.'/'.$query.$q);
 		die();
 	}
 	
-	public function actionBrowse($category_slug=null,$page=1,$query='',$mode=null)
+	private function passQueryString()
+	{
+		$q = $this->get;
+		unset($q['url']);
+		$q = (!empty($q)) ? '?'.http_build_query($q) : '';
+		$this->setVar('query_string',$q);
+	}
+	
+	public function actionBrowse($category_slug=null,$page=1,$query='')
 	{
 		$active_user = User::require_active_user();
 		$this->setLayoutVar('active_user', $active_user);
 		$this->setVar('active_user', $active_user);
 		$this->setLayoutVar('tab', 'browse');
+		$this->passQueryString();
 		
 		$query = urldecode($query);
 		
+		$sort_col = (isset($this->get['sort'])) ? $this->get['sort'] : 'added';
+		$sort_order = (isset($this->get['order'])) ? $this->get['order'] : 'desc';
+		
+		$this->setVar('sort', $sort_col);
+		$this->setVar('order', $sort_order);
+		
+		switch ($sort_col)
+		{
+			case 'added': $sort_col = 'ctime'; break;
+			case 'leechers':
+			case 'seeders':
+			case 'size':
+			//case 'title': // removing title until I get sphinx set up correctly
+				// Keep these as they are
+				break;
+			case 'snatches': $sort_col = 'completed'; break;
+			default:
+				// default to ctime
+				$sort_col = 'ctime';
+				break;
+		}
+		
+		// default to desc
+		if ($sort_order != 'desc' && $sort_order != 'asc') $sort_order = 'desc';
+				
 		if (is_null($page)) $page = 1;
 		
 		if (!empty($category_slug) && $category_slug != 'all')
@@ -60,7 +91,7 @@ class TorrentController extends AppController
 			$category = new Category(array('cid'=>-1,'name'=>'All','slug'=>'all'));
 		}
 		
-		$results = Torrent::browse(array('category_cid' => $category->cid, 'window' => 15, 'page' => $page, 'query' => $query,'mode'=>$mode));
+		$results = Torrent::browse(array('category_cid' => $category->cid, 'window' => 15, 'page' => $page, 'query' => $query, 'sort_col' => $sort_col, 'sort_order' => $sort_order));
 		
 		//if (empty($results['torrents'])) throw new Lvc_Exception('No torrents returned. Category: ' . $category->slug. '. Page: '. $page);
 		
@@ -82,9 +113,9 @@ class TorrentController extends AppController
 		{
 			$this->setLayoutVar('pageHead',$this->getLayoutVar('pageHead').': '. $query);
 			$this->setLayoutVar('pageTitle', 'Search Torrents');
-			if (strlen($query) < 4)
+			if (strlen($query) < 3)
 			{
-				Flash::set('failure','Your search query must be more than 4 characters long.');
+				Flash::set('failure','Your search query must be more than 3 characters long.');
 			}
 		}
 		
@@ -92,18 +123,8 @@ class TorrentController extends AppController
 		$this->setVar('categories',$categories);
 		$base_url = WWW_BASE_PATH;
 
-		switch ($mode)
-		{
-			case 'live':
-				$browse_base = 'browselive';
-				$search_base = 'searchlive';
-				break;
-			default:	
-				$browse_base = 'browse';
-				$search_base = 'search';
-				break;
-		}
-		
+		$browse_base = 'browse';
+		$search_base = 'search';		
 
 		if (empty($query))
 		{

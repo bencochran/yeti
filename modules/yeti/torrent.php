@@ -15,7 +15,7 @@
 		}
 
 		// Browse a torrent category
-		public static function browse($params = array('category_cid' => -1, 'window' => 15, 'page' => 1, 'query' => null, 'mode' => null)) {
+		public static function browse($params = array('category_cid' => -1, 'window' => 15, 'page' => 1, 'query' => null, 'mode' => null, 'sort_col' => 'title', 'sort_order' => 'desc')) {
 
 			switch(!is_null($params['query']) and strlen($params['query']) > 1) {
 				// no search query was passed
@@ -34,12 +34,14 @@
 						$query_torrents .= "WHERE flags != 1 AND category_cid != 9 ";
 						$query_count .= "WHERE flags != 1 AND category_cid != 9 ";
 					}
-					if ($params['mode'] == 'live')
+					if (!empty($params['sort_order']) && !empty($params['sort_col']))
 					{
-						$query_torrents .= "AND seeders > 0 ";
-						$query_count .= "AND seeders > 0 ";
+						$query_torrents .= "ORDER BY ".DB::escape($params['sort_col'])." ".DB::escape(strtoupper($params['sort_order']))." LIMIT " . DB::escape($start) . ", " . DB::escape($window);
 					}
-					$query_torrents .= "ORDER BY ctime DESC LIMIT " . DB::escape($start) . ", " . DB::escape($window);
+					else
+					{
+						$query_torrents .= "ORDER BY ctime DESC LIMIT " . DB::escape($start) . ", " . DB::escape($window);
+					}
 
 
 					if($results_torrents = DB::query($query_torrents) and $results_count = DB::query($query_count)) {
@@ -63,7 +65,26 @@
 					$sphinx = new SphinxClient();
 					$sphinx->SetServer(SEARCHD_HOST, SEARCHD_PORT);
 					$sphinx->SetMatchMode(SPH_MATCH_ALL);
-					$sphinx->SetSortMode(SPH_SORT_ATTR_DESC, 'ctime');
+					if (!empty($params['sort_order']) && !empty($params['sort_col']))
+					{
+						switch ($params['sort_order'])
+						{
+							case 'desc':
+								$sphinx->SetSortMode(SPH_SORT_ATTR_DESC, $params['sort_col']);
+								break;
+							case 'asc':
+								$sphinx->SetSortMode(SPH_SORT_ATTR_ASC, $params['sort_col']);
+								break;
+							default:
+								// Just in case, let's fall back on a default
+								$sphinx->SetSortMode(SPH_SORT_ATTR_DESC, 'ctime');
+								break;
+						}
+					}
+					else
+					{
+						$sphinx->SetSortMode(SPH_SORT_ATTR_DESC, 'ctime');
+					}
 					$sphinx->SetLimits(($params['page']- 1) * $params['window'], $params['window']);
 					if($params['category_cid'] != -1) {
 						$sphinx->SetFilter('category_cid', array($params['category_cid']));
@@ -76,8 +97,6 @@
 						foreach($results['matches'] as $hit => $details) {
 							$query = "SELECT * FROM xbt_files JOIN xbt_categories ON xbt_categories.cid = xbt_files.category_cid WHERE fid = " . $hit . " AND flags != 1";
 							if($result = mysql_fetch_array(DB::query($query))) {
-								if ($params['mode'] == 'live' && intval($result['seeders']) < 1)
-									continue;
 								$torrent = new Torrent($result);
 								array_push($torrents, $torrent);
 							}
