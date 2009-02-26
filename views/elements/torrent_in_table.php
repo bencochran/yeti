@@ -1,5 +1,5 @@
 <tr class="<?php echo ($i%2) ? 'odd' : 'even' ?>">
-	<td class="torrent">
+	<td class="torrent"<?php if ($colspan) echo ' colspan="2"'?>>
 		<a title="View torrent details" href="<?php echo WWW_BASE_PATH ?>torrent/<?php echo $torrent->fid; ?>"><?php echo $torrent->title; ?></a>
 				
 		<br />

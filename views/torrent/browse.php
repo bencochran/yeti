@@ -42,16 +42,17 @@
 	<table class="torrents">
 		<tr>
 			<th class="torrent">Torrent</th>
-			<th class="seeders"><abbr title="Seeders">Se</abbr></th>
-			<th class="leechers"><abbr title="Leechers">Le</abbr></th>
-			<th class="completed"><abbr title="Snatches">Sn</abbr></th>
+			<th class="seeders"><a href="<?php echo $base_url; if ($sort == 'added' && $order == 'desc'): ?>?sort=added&amp;order=asc<?php endif; ?>"><abbr title="Seeders">Added</abbr></a></th>
+			<th class="seeders"><a href="<?php echo $base_url ?>?sort=seeders&amp;order=<?php echo ($sort == 'seeders' && $order == 'desc') ? 'asc' : 'desc' ?>"><abbr title="Seeders">Se</abbr></a></th>
+			<th class="leechers"><a href="<?php echo $base_url ?>?sort=leechers&amp;order=<?php echo ($sort == 'leechers' && $order == 'desc') ? 'asc' : 'desc' ?>"><abbr title="Leechers">Le</abbr></a></th>
+			<th class="seeders"><a href="<?php echo $base_url ?>?sort=snatches&amp;order=<?php echo ($sort == 'snatches' && $order == 'desc') ? 'asc' : 'desc' ?>"><abbr title="Snatches">Sn</abbr></a></th>
 		</tr>
 		<?php $i=0; foreach ($torrents as $torrent): ?>
-			<?php $this->renderElement('torrent_in_table', array('torrent' => &$torrent, 'i' => $i++)); ?>
+			<?php $this->renderElement('torrent_in_table', array('torrent' => &$torrent, 'i' => $i++, 'colspan'=>true)); ?>
 		<?php endforeach; ?>
 	</table>
 	
-	<?php $this->renderElement('pagination', array('page'=>$page,'items'=>$count,'items_per_page'=>15,'base_url'=>$base_url)); ?>
+	<?php $this->renderElement('pagination', array('page'=>$page,'items'=>$count,'items_per_page'=>15,'base_url'=>$base_url,'sort'=>$sort,'order'=>$order,'q'=>$query_string)); ?>
 <?php else: ?>
 	<h3>Torrents Found (0)</h3>
 	<?php if (empty($query)): ?>
