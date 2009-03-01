@@ -705,7 +705,7 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 						// Pass query strings along
 						$q = $params['get'];
 						unset($q['url']);
-						if (!empty($q)) $q = '?'.http_build_query($q);
+						$q = (!empty($q))? '?'.http_build_query($q) : '';
 
 						header('Location: ' . $redirectUrl.$q);
 						exit();
