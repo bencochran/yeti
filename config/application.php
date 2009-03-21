@@ -103,10 +103,10 @@ define('SALT_RESET_CODE', 'whatpassword');
  * explanatory. 
  * 
  ********************************************************/
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'xbt');
-define('DB_USER', 'xbt_user');
-define('DB_PASS', '6qf2s79V4pM3y8XZ');
+define('DB_HOST', 'host');
+define('DB_NAME', 'dabase');
+define('DB_USER', 'user');
+define('DB_PASS', 'passowrd');
 
 
 /*********************************************************
