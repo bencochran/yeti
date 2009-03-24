@@ -104,7 +104,7 @@ define('SALT_RESET_CODE', 'whatpassword');
  * 
  ********************************************************/
 define('DB_HOST', 'host');
-define('DB_NAME', 'dabase');
+define('DB_NAME', 'database');
 define('DB_USER', 'user');
 define('DB_PASS', 'passowrd');
 
